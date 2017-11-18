@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/KolibreePlugin/Examples/Scenes/Ara.unity
+    guid: 3a2acb75c190b76408ee45c7140b2186
