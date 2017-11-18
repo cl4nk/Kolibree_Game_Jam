@@ -1,21 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
-public class TestInputAra : MonoBehaviour {
+public class AraDeviceHandlerSimulator : Singleton<AraDeviceHandlerSimulator> {
+
+    public static event UnityAction<AraToothbrushZone> OnAraDetectedZone;
 
     private void OnEnable()
     {
         AraDeviceHandlerSimulator.OnAraDetectedZone += this.AraDeviceHandler_OnAraDetectedZone;
+        BindFakeInput();
     }
 
     private void OnDisable()
     {
         AraDeviceHandlerSimulator.OnAraDetectedZone -= this.AraDeviceHandler_OnAraDetectedZone;
+
     }
 
     private void AraDeviceHandler_OnAraDetectedZone(AraToothbrushZone arg0)
     {
-        MobileDebugView.LogInfo("Zone Detected !!! " + arg0.ToString());
+        OnAraDetectedZone.Invoke(arg0);
     }
+
+    private void BindFakeInput()
+    {
+
+    }
+
 }

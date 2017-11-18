@@ -6,7 +6,7 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
 {
     private Dictionary<AraToothbrushZone, BrushRythm> brushRythmDictionnary = new Dictionary<AraToothbrushZone, BrushRythm>();
 
-    public event Action<AraToothbrushZone, Accuracy> OnBrushCompleted;
+    public event Action<BrushRythm, AraToothbrushZone, Accuracy> OnBrushCompleted;
 
     public float PercentRythmCompleted
     {
@@ -24,32 +24,33 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
 
     public void OnEnable()
     {
-        AraDeviceHandler.OnAraDetectedZone += this.AraDeviceHandler_OnAraDetectedZone;
+        AraDeviceHandlerSimulator.OnAraDetectedZone += this.AraDeviceHandler_OnAraDetectedZone;
     }
 
     public void OnDisable()
     {
-        AraDeviceHandler.OnAraDetectedZone -= this.AraDeviceHandler_OnAraDetectedZone;
+        AraDeviceHandlerSimulator.OnAraDetectedZone -= this.AraDeviceHandler_OnAraDetectedZone;
     }
 
-    public void InitRythms(List<AraToothbrushRythm> rythmList)
+    public void Register (BrushRythm rythm)
     {
-        brushRythmDictionnary.Clear();
+        brushRythmDictionnary.Add(rythm.Zone, rythm);
+    }
 
-        foreach (AraToothbrushRythm rythm in rythmList)
-        {
-            if (brushRythmDictionnary.ContainsKey(rythm.Zone))
-                Debug.LogWarning("Zone already have a rythm connected");
-            else
-                brushRythmDictionnary.Add(rythm.Zone, rythm.Rythm);
-        }
+    public void Unregister(BrushRythm rythm)
+    {
+        AraToothbrushZone zone = rythm.Zone;
+        if (brushRythmDictionnary.ContainsKey(zone) && brushRythmDictionnary[zone] == rythm)
+            brushRythmDictionnary.Remove(zone);
+        else
+            Debug.LogWarning("Rythm not found inside dictionnary");
     }
 
     private void AraDeviceHandler_OnAraDetectedZone(AraToothbrushZone zone)
     {
         if (brushRythmDictionnary.ContainsKey(zone))
         {
-            OnBrushCompleted.Invoke(zone, brushRythmDictionnary[zone].OnBrushDetected());
+            OnBrushCompleted.Invoke(brushRythmDictionnary[zone], zone, brushRythmDictionnary[zone].OnBrushDetected());
         }
     }
 

@@ -16,7 +16,7 @@ public class BrushAnimation : MonoBehaviour
         BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
     }
 
-    private void Instance_OnBrushCompleted(AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
     {
         if (zone == _zone)
         {

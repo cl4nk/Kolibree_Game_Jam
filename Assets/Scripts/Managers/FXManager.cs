@@ -38,7 +38,7 @@ public class FXManager : Singleton<FXManager>
         BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
     }
 
-    private void Instance_OnBrushCompleted(AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
     {
         if (UnityEngine.Random.value < SoundChance)
             PlayAudio(accuracy);

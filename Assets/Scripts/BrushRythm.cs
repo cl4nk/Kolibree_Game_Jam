@@ -16,9 +16,15 @@ public struct AraToothbrushRythm
     public BrushRythm Rythm;
 }
 
-[System.Serializable]
-public class BrushRythm
+public class BrushRythm : MonoBehaviour
 {
+    [SerializeField]
+    private AraToothbrushZone zone;
+    public AraToothbrushZone Zone
+    {
+        get { return zone; }
+    }
+
     [SerializeField]
     private float delayBetween = 0.5f;
     [SerializeField]
@@ -33,6 +39,16 @@ public class BrushRythm
     public float PercentCompleted
     {
         get { return currentBrushCount / goodBrushCount; }
+    }
+
+    public void OnEnable()
+    {
+        BrushRythmManager.Instance.Register(this);
+    }
+
+    private void OnDisable()
+    {
+        BrushRythmManager.Instance.Unregister(this);
     }
 
     public Accuracy OnBrushDetected()

@@ -44,18 +44,17 @@ public class GUIManager : Singleton<GUIManager>
         foreach (MeshRenderer meshRenderer in toothMeshList)
             meshRenderer.gameObject.SetActive(false);
 
-        AraDeviceHandler.OnAraDetectedZone += this.Instance_OnBrushCompleted;
+        //AraDeviceHandlerSimulator.OnAraDetectedZone += this.Instance_OnBrushCompleted;
         MobileDebugView.LogInfo("GUIManager : connect to AraDeviceHandler");
 
-        //BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
+        BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
     }
 
     private void OnDisable()
     {
-        AraDeviceHandler.OnAraDetectedZone -= this.Instance_OnBrushCompleted;
-        //BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
+        //AraDeviceHandlerSimulator.OnAraDetectedZone -= this.Instance_OnBrushCompleted;
+        BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
         MobileDebugView.LogInfo("GUIManager : disconnect to AraDeviceHandler");
-
     }
 
     private void Update()
@@ -67,8 +66,8 @@ public class GUIManager : Singleton<GUIManager>
             ResetUI();
     }
 
-    //private void Instance_OnBrushCompleted(AraToothbrushZone zone, Accuracy accuracy)
-    private void Instance_OnBrushCompleted(AraToothbrushZone zone)
+    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
+    //private void Instance_OnBrushCompleted(AraToothbrushZone zone)
     {
         MobileDebugView.LogInfo("GUIManager : " + zone.ToString());
 
@@ -96,13 +95,13 @@ public class GUIManager : Singleton<GUIManager>
 
     private void ResetUI()
     {
-        /*if (activeMesh)
+        if (activeMesh)
         {
             activeMesh.gameObject.SetActive(false);
             activeMesh = null;
         }
 
         spriteContainer.sprite = BodySprites.MainSprite;
-        EndTime = -1;*/
+        EndTime = -1;
     }
 }

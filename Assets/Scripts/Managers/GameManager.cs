@@ -85,7 +85,7 @@ public class GameManager : Singleton<GameManager>
         State = GameState.Play;
     }
 
-    private void Instance_OnBrushCompleted(AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
     {
         switch (accuracy)
         {
