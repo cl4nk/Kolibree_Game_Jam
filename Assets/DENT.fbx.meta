@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: e1307dc933da00b46a95006652f68372
+timeCreated: 1510974702
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Circle
+    100002: Circle.001
+    100004: Circle.002
+    100006: Circle.019
+    100008: Circle.020
+    100010: Circle.021
+    100012: //RootNode
+    100014: down_devant_exterior
+    100016: down_devant_interior
+    100018: down_left_exterior
+    100020: down_left_interior
+    100022: down_left_up
+    100024: down_right_exterior
+    100026: down_right_interior
+    100028: down_right_up
+    100030: up_devant_exterior
+    100032: up_devant_interior
+    100034: up_left_bottom
+    100036: up_left_exterior
+    100038: up_left_interior
+    100040: up_right_bottom
+    100042: up_right_exterior
+    100044: up_right_interior
+    400000: Circle
+    400002: Circle.001
+    400004: Circle.002
+    400006: Circle.019
+    400008: Circle.020
+    400010: Circle.021
+    400012: //RootNode
+    400014: down_devant_exterior
+    400016: down_devant_interior
+    400018: down_left_exterior
+    400020: down_left_interior
+    400022: down_left_up
+    400024: down_right_exterior
+    400026: down_right_interior
+    400028: down_right_up
+    400030: up_devant_exterior
+    400032: up_devant_interior
+    400034: up_left_bottom
+    400036: up_left_exterior
+    400038: up_left_interior
+    400040: up_right_bottom
+    400042: up_right_exterior
+    400044: up_right_interior
+    2300000: Circle
+    2300002: Circle.001
+    2300004: Circle.002
+    2300006: Circle.019
+    2300008: Circle.020
+    2300010: Circle.021
+    2300012: down_devant_exterior
+    2300014: down_devant_interior
+    2300016: down_left_exterior
+    2300018: down_left_interior
+    2300020: down_left_up
+    2300022: down_right_exterior
+    2300024: down_right_interior
+    2300026: down_right_up
+    2300028: up_devant_exterior
+    2300030: up_devant_interior
+    2300032: up_left_bottom
+    2300034: up_left_exterior
+    2300036: up_left_interior
+    2300038: up_right_bottom
+    2300040: up_right_exterior
+    2300042: up_right_interior
+    3300000: Circle
+    3300002: Circle.001
+    3300004: Circle.002
+    3300006: Circle.019
+    3300008: Circle.020
+    3300010: Circle.021
+    3300012: down_devant_exterior
+    3300014: down_devant_interior
+    3300016: down_left_exterior
+    3300018: down_left_interior
+    3300020: down_left_up
+    3300022: down_right_exterior
+    3300024: down_right_interior
+    3300026: down_right_up
+    3300028: up_devant_exterior
+    3300030: up_devant_interior
+    3300032: up_left_bottom
+    3300034: up_left_exterior
+    3300036: up_left_interior
+    3300038: up_right_bottom
+    3300040: up_right_exterior
+    3300042: up_right_interior
+    4300000: Circle.021
+    4300002: Circle.020
+    4300004: Circle.019
+    4300006: up_left_bottom
+    4300008: up_left_interior
+    4300010: up_left_exterior
+    4300012: up_right_bottom
+    4300014: up_right_interior
+    4300016: up_right_exterior
+    4300018: up_devant_exterior
+    4300020: up_devant_interior
+    4300022: down_devant_interior
+    4300024: down_devant_exterior
+    4300026: down_right_exterior
+    4300028: down_right_interior
+    4300030: down_right_up
+    4300032: down_left_exterior
+    4300034: down_left_interior
+    4300036: down_left_up
+    4300038: Circle.002
+    4300040: Circle.001
+    4300042: Circle
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: ef80db3939812fb4e8de81d0e10959e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: ad7c14788761de04cb35e51f11713023, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
