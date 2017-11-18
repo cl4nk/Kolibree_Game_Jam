@@ -309,7 +309,7 @@ MonoBehaviour:
   - {fileID: 1327156766388866, guid: e905fc6107c5f0147a184f26ad3f3141, type: 2}
   - {fileID: 1411215151152534, guid: 638428e1389fdb241b3c1d194c1f20da, type: 2}
   lType: 
-  spawnParticule: 0
+  spawnParticule: 1
 --- !u!4 &966270025
 Transform:
   m_ObjectHideFlags: 0

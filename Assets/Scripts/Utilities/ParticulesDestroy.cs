@@ -6,6 +6,6 @@ public class ParticulesDestroy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Destroy(gameObject, 1);	
+        Destroy(gameObject, 10);	
 	}
 }
