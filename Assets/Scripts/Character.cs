@@ -6,8 +6,8 @@ public class Character : MonoBehaviour
 {
     public GameObject frontGameObject;
     public GameObject backGameObject;
-    public List<AraToothbrushRythm> frontRythm;
-    public List<AraToothbrushRythm> backRythm;
+
+    public Sprite MainHintSprite;
 
     private bool _back = true;
     public bool Back

@@ -32,6 +32,8 @@ public class BrushRythm : MonoBehaviour
     [SerializeField]
     private int goodBrushCount = 5;
 
+    public Sprite hintSprite;
+
     private int currentBrushCount = 0;
 
     private float lastBrushTime = -1;
