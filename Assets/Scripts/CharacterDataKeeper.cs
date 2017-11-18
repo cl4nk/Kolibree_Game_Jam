@@ -12,11 +12,20 @@ public class CharacterDataKeeper : Singleton<CharacterDataKeeper>
 
     public void Start()
     {
-        skinColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Skin);
-        skinColor.a = 1.0f;
-        hairColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Hair);
-        hairColor.a = 1.0f;
-        eyeColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Eye);
-        eyeColor.a = 1.0f;
+        if (ColorOptionMenu.HasColor(ColorOptionMenu.ColorPart.Skin))
+        {
+            skinColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Skin);
+            skinColor.a = 1.0f;
+        }
+        if (ColorOptionMenu.HasColor(ColorOptionMenu.ColorPart.Hair))
+        {
+            hairColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Hair);
+            hairColor.a = 1.0f;
+        }
+        if (ColorOptionMenu.HasColor(ColorOptionMenu.ColorPart.Eye))
+        {
+            eyeColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Eye);
+            eyeColor.a = 1.0f;
+        }
     }
 }

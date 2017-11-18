@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,6 +53,11 @@ public class ColorOptionMenu : MonoBehaviour
         CurrentColorPart = ColorPart.Eye;
     }
 
+    public static bool HasColor(ColorPart colorPart)
+    {
+        return PlayerPrefs.GetInt(colorPart.ToString(), 0) == 1;
+    }
+
     public static Color GetColor(ColorPart colorPart)
     {
         Color color = new Color();
@@ -68,6 +74,8 @@ public class ColorOptionMenu : MonoBehaviour
         PlayerPrefs.SetFloat(colorPart.ToString() + 'r', value.r);
         PlayerPrefs.SetFloat(colorPart.ToString() + 'g', value.g);
         PlayerPrefs.SetFloat(colorPart.ToString() + 'b', value.b);
+
+        PlayerPrefs.SetInt(colorPart.ToString(), 1);
         PlayerPrefs.Save();
 
         value.a = 1.0f;
