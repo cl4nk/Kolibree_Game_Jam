@@ -15,7 +15,10 @@ public class ColorSetter : MonoBehaviour
         set
         {
             currentColor = value;
-            image.color = value;
+            image.color = new Color(value.r, value.g, value.b, 1.0f);
+            redSlider.value = currentColor.r;
+            greenSlider.value = currentColor.g;
+            blueSlider.value = currentColor.b;
         }
     }
 
@@ -33,10 +36,6 @@ public class ColorSetter : MonoBehaviour
 
     public void Start()
     {
-        redSlider.value = currentColor.r;
-        greenSlider.value = currentColor.g;
-        blueSlider.value = currentColor.b;
-
         redSlider.onValueChanged.AddListener(SetRedValue);
         greenSlider.onValueChanged.AddListener(SetGreenValue);
         blueSlider.onValueChanged.AddListener(SetBlueValue);
@@ -65,6 +64,7 @@ public class ColorSetter : MonoBehaviour
 
     public void ValidateColor()
     {
-        OnValidateColor.Invoke(currentColor);
+        if (OnValidateColor != null)
+            OnValidateColor.Invoke(currentColor);
     }
 }

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
     public Canvas optionScreen;
     public Canvas helpScreen;
     public Canvas creditScreen;
+    public Canvas ColorOptionScreen;
 
     public Button btnSoundOn;
     public Button btnSoundOff;
@@ -18,13 +19,15 @@ public class UIManager : MonoBehaviour {
     public Button btnVibrationOff;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         titleCard.enabled = true;
         startGame.enabled = false;
         shopScreen.enabled = false;
         optionScreen.enabled = false;
         helpScreen.enabled = false;
         creditScreen.enabled = false;
+        ColorOptionScreen.enabled = false;
 
         if (PlayerPrefs.HasKey("volume"))
         {
@@ -62,11 +65,6 @@ public class UIManager : MonoBehaviour {
             disableButton(btnVibrationOff);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void openCanvas(Canvas pNewCanvas)
     {
