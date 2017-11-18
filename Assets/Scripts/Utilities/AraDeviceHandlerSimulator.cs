@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class AraDeviceHandlerSimulator : Singleton<AraDeviceHandlerSimulator> {
@@ -7,14 +8,12 @@ public class AraDeviceHandlerSimulator : Singleton<AraDeviceHandlerSimulator> {
 
     private void OnEnable()
     {
-        AraDeviceHandlerSimulator.OnAraDetectedZone += this.AraDeviceHandler_OnAraDetectedZone;
-        BindFakeInput();
+        AraDeviceHandler.OnAraDetectedZone += this.AraDeviceHandler_OnAraDetectedZone;
     }
 
     private void OnDisable()
     {
-        AraDeviceHandlerSimulator.OnAraDetectedZone -= this.AraDeviceHandler_OnAraDetectedZone;
-
+        AraDeviceHandler.OnAraDetectedZone -= this.AraDeviceHandler_OnAraDetectedZone;
     }
 
     private void AraDeviceHandler_OnAraDetectedZone(AraToothbrushZone arg0)
@@ -22,8 +21,31 @@ public class AraDeviceHandlerSimulator : Singleton<AraDeviceHandlerSimulator> {
         OnAraDetectedZone.Invoke(arg0);
     }
 
-    private void BindFakeInput()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            OnAraDetectedZone.Invoke((AraToothbrushZone) 1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            OnAraDetectedZone.Invoke((AraToothbrushZone) 2);
+        }
+        else if(Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            OnAraDetectedZone.Invoke((AraToothbrushZone) 3);
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            OnAraDetectedZone.Invoke((AraToothbrushZone) 4);
+        }
+        else if(Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            OnAraDetectedZone.Invoke((AraToothbrushZone) 5);
+        } else if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            OnAraDetectedZone.Invoke((AraToothbrushZone) 6);
+        }
 
     }
 
