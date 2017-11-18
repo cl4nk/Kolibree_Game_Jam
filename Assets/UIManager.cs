@@ -81,7 +81,7 @@ public class UIManager : MonoBehaviour {
     public void activeButton(Button pNewButton)
     {
         pNewButton.enabled = true;
-        pActualButton.gameObject.SetActive(true);
+        pNewButton.gameObject.SetActive(true);
     }
 
     public void disableButton(Button pActualButton)
