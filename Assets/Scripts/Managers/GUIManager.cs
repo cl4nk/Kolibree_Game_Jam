@@ -69,6 +69,7 @@ public class GUIManager : Singleton<GUIManager>
         orgasmSlider.value = GameManager.Instance.OrgasmJauge;
         int index = (int) zone;
 
+        MobileDebugView.LogState("GUIManager", zone);
         if (index < 0)
             return;
 
