@@ -45,6 +45,8 @@ public class GUIManager : Singleton<GUIManager>
             meshRenderer.gameObject.SetActive(false);
 
         AraDeviceHandler.OnAraDetectedZone += this.Instance_OnBrushCompleted;
+        MobileDebugView.LogInfo("GUIManager : connect to AraDeviceHandler");
+
         //BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
     }
 
@@ -52,6 +54,8 @@ public class GUIManager : Singleton<GUIManager>
     {
         AraDeviceHandler.OnAraDetectedZone -= this.Instance_OnBrushCompleted;
         //BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
+        MobileDebugView.LogInfo("GUIManager : disconnect to AraDeviceHandler");
+
     }
 
     private void Update()
@@ -66,10 +70,14 @@ public class GUIManager : Singleton<GUIManager>
     //private void Instance_OnBrushCompleted(AraToothbrushZone zone, Accuracy accuracy)
     private void Instance_OnBrushCompleted(AraToothbrushZone zone)
     {
-        orgasmSlider.value = GameManager.Instance.OrgasmJauge;
+        MobileDebugView.LogInfo("GUIManager : " + zone.ToString());
+
+        //orgasmSlider.value = GameManager.Instance.OrgasmJauge;
+        MobileDebugView.LogInfo("GUIManager : 1");
+
         int index = (int) zone;
 
-        MobileDebugView.LogState("GUIManager", zone);
+        MobileDebugView.LogInfo("GUIManager : " + zone.ToString() + " " + index.ToString());
         if (index < 0)
             return;
 
