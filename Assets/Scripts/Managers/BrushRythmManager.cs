@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BrushRythmManager : Singleton<BrushRythmManager>
 {
-    private Dictionary<AraToothbrushZone, BrushRythm> brushRythmDictionnary;
+    private Dictionary<AraToothbrushZone, BrushRythm> brushRythmDictionnary = new Dictionary<AraToothbrushZone, BrushRythm>();
 
     public event Action<AraToothbrushZone, Accuracy> OnBrushCompleted;
 

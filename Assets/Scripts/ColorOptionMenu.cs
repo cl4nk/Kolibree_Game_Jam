@@ -70,6 +70,7 @@ public class ColorOptionMenu : MonoBehaviour
         PlayerPrefs.SetFloat(colorPart.ToString() + 'b', value.b);
         PlayerPrefs.Save();
 
+        value.a = 1.0f;
         switch (colorPart)
         {
             case ColorPart.Skin:

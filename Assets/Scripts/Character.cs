@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FXManager))]
 public class Character : MonoBehaviour
 {
     public GameObject frontGameObject;
     public GameObject backGameObject;
-    public FXManager fxGameObject;
     public List<AraToothbrushRythm> frontRythm;
     public List<AraToothbrushRythm> backRythm;
 
@@ -42,7 +42,9 @@ public class Character : MonoBehaviour
     public void UpdateState ()
     {
         BrushRythmManager.Instance.InitRythms(Back ? backRythm : frontRythm);
-        frontGameObject.gameObject.SetActive(!Back);
-        backGameObject.gameObject.SetActive(Back);
+        if (frontGameObject)
+            frontGameObject.gameObject.SetActive(!Back);
+        if (backGameObject)
+            backGameObject.gameObject.SetActive(Back);
     }
 }

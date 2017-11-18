@@ -473,7 +473,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 25778062}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1805563066}
+        m_MethodName: SelectFemale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &25778062
@@ -1882,32 +1893,32 @@ Prefab:
     - target: {fileID: 224131609236804078, guid: b48dd3c212994cc4d9ddfee22d03c5b7,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -418
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224010961222809628, guid: b48dd3c212994cc4d9ddfee22d03c5b7,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -418
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224290729908380530, guid: b48dd3c212994cc4d9ddfee22d03c5b7,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -418
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224214225606705934, guid: b48dd3c212994cc4d9ddfee22d03c5b7,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -418
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224083856263334458, guid: b48dd3c212994cc4d9ddfee22d03c5b7,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -418
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224599381434200122, guid: b48dd3c212994cc4d9ddfee22d03c5b7,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -418
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224610591131821022, guid: b48dd3c212994cc4d9ddfee22d03c5b7,
         type: 2}
@@ -4300,7 +4311,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1613527656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1805563066}
+        m_MethodName: SelectMale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1613527656
@@ -5014,6 +5036,7 @@ GameObject:
   - component: {fileID: 1805563064}
   - component: {fileID: 1805563063}
   - component: {fileID: 1805563062}
+  - component: {fileID: 1805563066}
   m_Layer: 5
   m_Name: StartGame
   m_TagString: Untagged
@@ -5101,6 +5124,20 @@ RectTransform:
   m_AnchoredPosition: {x: 240, y: 135}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.49999997, y: 0.5}
+--- !u!114 &1805563066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1805563061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384406cf919b03548b6ea54d34409dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FemaleCharacter: {fileID: 114186052121480134, guid: 2f4e414e0c06e924e9b8a35951082774,
+    type: 2}
+  MaleCharacter: {fileID: 0}
 --- !u!1 &1826542089
 GameObject:
   m_ObjectHideFlags: 0
