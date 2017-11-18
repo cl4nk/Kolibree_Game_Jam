@@ -43,12 +43,15 @@ public class GUIManager : Singleton<GUIManager>
     {
         foreach (MeshRenderer meshRenderer in toothMeshList)
             meshRenderer.gameObject.SetActive(false);
-        BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
-	}
+
+        AraDeviceHandler.OnAraDetectedZone += this.Instance_OnBrushCompleted;
+        //BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
+    }
 
     private void OnDisable()
     {
-        BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
+        AraDeviceHandler.OnAraDetectedZone -= this.Instance_OnBrushCompleted;
+        //BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
     }
 
     private void Update()
@@ -60,11 +63,13 @@ public class GUIManager : Singleton<GUIManager>
             ResetUI();
     }
 
-    private void Instance_OnBrushCompleted(AraToothbrushZone zone, Accuracy accuracy)
+    //private void Instance_OnBrushCompleted(AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(AraToothbrushZone zone)
     {
         orgasmSlider.value = GameManager.Instance.OrgasmJauge;
         int index = (int) zone;
 
+        MobileDebugView.LogState("GUIManager", zone);
         if (index < 0)
             return;
 
@@ -76,20 +81,20 @@ public class GUIManager : Singleton<GUIManager>
         toothMeshList[index].gameObject.SetActive(true);
         activeMesh = toothMeshList[index];
 
-        if (BodySprites != null)
-            spriteContainer.sprite = BodySprites.ToothSpriteList[index];
+        /*if (BodySprites != null)
+            spriteContainer.sprite = BodySprites.ToothSpriteList[index];*/
 
     }
 
     private void ResetUI()
     {
-        if (activeMesh)
+        /*if (activeMesh)
         {
             activeMesh.gameObject.SetActive(false);
             activeMesh = null;
         }
 
         spriteContainer.sprite = BodySprites.MainSprite;
-        EndTime = -1;
+        EndTime = -1;*/
     }
 }
