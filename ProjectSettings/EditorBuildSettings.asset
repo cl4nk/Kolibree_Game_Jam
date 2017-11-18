@@ -6,5 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KolibreePlugin/Examples/Scenes/Ara.unity
-    guid: 3a2acb75c190b76408ee45c7140b2186
+    path: Assets/Scenes/LobbyAra.unity
+    guid: bc1e9425f69703043bab985457bbab90
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 094a9f71c0cf2f644a0599520f623c2a
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 3c08c803c23475d48a7fe6d907da6a35

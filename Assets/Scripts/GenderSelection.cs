@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GenderSelection : MonoBehaviour
 {
+    public int MainSceneIndex = 2;
+
     public Character FemaleCharacter;
     public Character MaleCharacter;
 
@@ -31,6 +33,6 @@ public class GenderSelection : MonoBehaviour
 
     private void LaunchMainScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(MainSceneIndex);
     }
 }
