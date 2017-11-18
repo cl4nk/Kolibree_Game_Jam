@@ -9,4 +9,11 @@ public class CharacterDataKeeper : Singleton<CharacterDataKeeper>
     public Color eyeColor = Color.blue;
 
     public Character characterPrefab;
+
+    public void Start()
+    {
+        skinColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Skin);
+        hairColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Hair);
+        eyeColor = ColorOptionMenu.GetColor(ColorOptionMenu.ColorPart.Eye);
+    }
 }

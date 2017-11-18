@@ -34,7 +34,6 @@ public class ColorOptionMenu : MonoBehaviour
     {
         CurrentColorPart = ColorPart.Skin;
         colorSetter.OnValidateColor += this.ColorSetter_OnValidateColor;
-            
     }
 
 
@@ -53,7 +52,7 @@ public class ColorOptionMenu : MonoBehaviour
         CurrentColorPart = ColorPart.Eye;
     }
 
-    public Color GetColor(ColorPart colorPart)
+    public static Color GetColor(ColorPart colorPart)
     {
         Color color = new Color();
         color.r = PlayerPrefs.GetFloat(colorPart.ToString() + 'r', 1.0f);
@@ -71,6 +70,18 @@ public class ColorOptionMenu : MonoBehaviour
         PlayerPrefs.SetFloat(colorPart.ToString() + 'b', value.b);
         PlayerPrefs.Save();
 
+        switch (colorPart)
+        {
+            case ColorPart.Skin:
+                CharacterDataKeeper.Instance.skinColor = value;
+                break;
+            case ColorPart.Hair:
+                CharacterDataKeeper.Instance.hairColor = value;
+                break;
+            case ColorPart.Eye:
+                CharacterDataKeeper.Instance.eyeColor = value;
+                break;
+        }
     }
 
     private void ColorSetter_OnValidateColor(Color value)
