@@ -617,7 +617,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -908,42 +908,77 @@ MonoBehaviour:
       delayBetween: 0
       delayAcceptation: 0
       goodBrushCount: 0
+  - Zone: 2
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 1
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 3
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 5
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 4
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 7
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 6
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 10
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
+  - Zone: 10
+    Rythm:
+      delayBetween: 0
+      delayAcceptation: 0
+      goodBrushCount: 0
   - Zone: 9
     Rythm:
       delayBetween: 0
       delayAcceptation: 0
       goodBrushCount: 0
-  - Zone: 0
+  - Zone: 11
     Rythm:
       delayBetween: 0
       delayAcceptation: 0
       goodBrushCount: 0
-  - Zone: 0
+  - Zone: 13
     Rythm:
       delayBetween: 0
       delayAcceptation: 0
       goodBrushCount: 0
-  - Zone: 0
+  - Zone: 12
     Rythm:
       delayBetween: 0
       delayAcceptation: 0
       goodBrushCount: 0
-  - Zone: 0
+  - Zone: 15
     Rythm:
       delayBetween: 0
       delayAcceptation: 0
       goodBrushCount: 0
-  - Zone: 0
-    Rythm:
-      delayBetween: 0
-      delayAcceptation: 0
-      goodBrushCount: 0
-  - Zone: 0
-    Rythm:
-      delayBetween: 0
-      delayAcceptation: 0
-      goodBrushCount: 0
-  - Zone: 0
+  - Zone: 14
     Rythm:
       delayBetween: 0
       delayAcceptation: 0
