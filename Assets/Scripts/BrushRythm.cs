@@ -50,7 +50,7 @@ public class BrushRythm : MonoBehaviour
         BrushRythmManager.Instance.Unregister(this);
     }
 
-    void SetTargetVisible (bool value)
+    public void SetTargetVisible (bool value)
     {
         if (Target == null)
             return;

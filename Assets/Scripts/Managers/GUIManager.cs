@@ -29,12 +29,15 @@ public class GUIManager : Singleton<GUIManager>
         AraDeviceHandlerSimulator.OnAraDetectedZone += this.AraDeviceHandlerSimulator_OnAraDetectedZone;
         MobileDebugView.LogInfo("GUIManager : connect to AraDeviceHandler");
         BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
+        GameManager.Instance.OnScoreChange += this.Instance_OnScoreChange;
     }
 
     private void OnDisable()
     {
         AraDeviceHandlerSimulator.OnAraDetectedZone -= this.AraDeviceHandlerSimulator_OnAraDetectedZone;
         BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
+        GameManager.Instance.OnScoreChange += this.Instance_OnScoreChange;
+
         MobileDebugView.LogInfo("GUIManager : disconnect to AraDeviceHandler");
     }
 
@@ -61,16 +64,16 @@ public class GUIManager : Singleton<GUIManager>
         activeMesh = toothMeshList[index];
     }
 
-    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(BrushRythm rythm, Accuracy accuracy)
+    {
+        if (rythm)
+            spriteContainer.sprite = rythm.hintSprite;
+
+    }
+
+    private void Instance_OnScoreChange(int obj)
     {
         orgasmSlider.value = GameManager.Instance.OrgasmJauge;
-
-        int index = (int) zone;
-
-        if (index < 0)
-            return;
-
-        spriteContainer.sprite = rythm.hintSprite;
 
     }
 

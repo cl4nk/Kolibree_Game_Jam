@@ -39,7 +39,7 @@ public class FXManager : Singleton<FXManager>
         BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
     }
 
-    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(BrushRythm rythm, Accuracy accuracy)
     {
 
         if (UnityEngine.Random.value < SpeakChance)

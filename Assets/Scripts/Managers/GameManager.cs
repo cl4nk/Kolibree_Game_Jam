@@ -56,7 +56,7 @@ public class GameManager : Singleton<GameManager>
         }
         set
         {
-            if (state != value)
+            if (state == value)
                 return;
 
             state = value;
@@ -105,7 +105,7 @@ public class GameManager : Singleton<GameManager>
         State = GameState.Play;
     }
 
-    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(BrushRythm rythm, Accuracy accuracy)
     {
         switch (accuracy)
         {
@@ -113,10 +113,12 @@ public class GameManager : Singleton<GameManager>
                 break;
             case Accuracy.Bad:
                 ++badCount;
+                emotion = CharacterEmotion.Frustrated;
                 if (badCount == badCountAuthorized)
                     State = GameState.Finish;
                 break;
             case Accuracy.Good:
+                emotion = CharacterEmotion.Happy;
                 Score = Score +1;
                 break;
             case Accuracy.Perfect:
@@ -136,6 +138,7 @@ public class GameManager : Singleton<GameManager>
         else
         {
             BrushRythmManager.Instance.enabled = true;
+            BrushRythmManager.Instance.InitZonesToBrush();
         }
     }
 }

@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
         Back = true;
     }
 
-    private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
+    private void Instance_OnBrushCompleted(BrushRythm rythm,  Accuracy accuracy)
     {
         if (Back && GameManager.Instance.OrgasmJauge > 0.5f)
             Back = false;

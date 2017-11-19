@@ -27,7 +27,7 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
 
     public SpriteRenderer TargetPrefab;
 
-    public event Action<BrushRythm, AraToothbrushZone, Accuracy> OnBrushCompleted;
+    public event Action<BrushRythm, Accuracy> OnBrushCompleted;
 
     public float PercentRythmCompleted
     {
@@ -35,7 +35,7 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
         {
             if (ZonesToBrush.Count <= 0)
                 return 0.0f;
-            return Count / ZonesToBrush.Count;
+            return (float) Count / (float) ZonesToBrush.Count;
         }
     }
 
@@ -64,6 +64,8 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
 
             ZonesToBrush.Enqueue(data);
         }
+
+        NextBrush();
     }
 
     public void Register (BrushRythm rythm)
@@ -90,16 +92,29 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
 
     private void AraDeviceHandler_OnAraDetectedZone(AraToothbrushZone zone)
     {
+        BrushRythm brushRythm = brushRythmDictionnary.ContainsKey(zone) ? brushRythmDictionnary[zone] : null;
         if (zone != CurrentData.brushZone)
-            OnBrushCompleted.Invoke(brushRythmDictionnary[zone], zone, Accuracy.Bad);
-
-        if (!brushRythmDictionnary.ContainsKey(zone))
+            OnBrushCompleted.Invoke(brushRythm, Accuracy.Bad);
+        else
         {
-            Debug.Log("Erreur")
-            OnBrushCompleted.Invoke(brushRythmDictionnary[zone], zone, brushRythmDictionnary[zone].OnBrushDetected());
+            OnBrushCompleted.Invoke(brushRythm, Accuracy.Good);
         }
     }
 
-    public IE
+    private void NextBrush()
+    {
+        if (CurrentRythm)
+            CurrentRythm.SetTargetVisible(false);
+
+        if (ZonesToBrush.Count == 0)
+        {
+            GameManager.Instance.State = GameManager.GameState.Finish;
+            return;
+        }
+        CurrentData = ZonesToBrush.Dequeue();
+        CurrentRythm = brushRythmDictionnary[CurrentData.brushZone];
+        if (CurrentRythm)
+            CurrentRythm.SetTargetVisible(true);
+    }
     
 }
