@@ -5,10 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class EyeSprite : MonoBehaviour
 {
-
+    public Sprite defaultSprite;
     // Use this for initialization
     void Start()
     {
-        GetComponent<SpriteRenderer>().color = CharacterDataKeeper.Instance.eyeColor;
+        if (CharacterDataKeeper.HasEyeColor())
+            GetComponent<SpriteRenderer>().color = CharacterDataKeeper.Instance.eyeColor;
+        else
+            GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
 }

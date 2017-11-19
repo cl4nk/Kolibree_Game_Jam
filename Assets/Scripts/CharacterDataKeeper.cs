@@ -28,4 +28,20 @@ public class CharacterDataKeeper : Singleton<CharacterDataKeeper>
             eyeColor.a = 1.0f;
         }
     }
+
+    public static bool HasSkinColor()
+    {
+        return ColorOptionMenu.HasColor(ColorOptionMenu.ColorPart.Skin);
+    }
+
+    public static bool HasHairColor()
+    {
+        return ColorOptionMenu.HasColor(ColorOptionMenu.ColorPart.Hair);
+    }
+
+    public static bool HasEyeColor()
+    {
+        return ColorOptionMenu.HasColor(ColorOptionMenu.ColorPart.Eye);
+
+    }
 }

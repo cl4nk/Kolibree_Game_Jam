@@ -5,10 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class HairSprite : MonoBehaviour {
 
-	// Use this for initialization
-	void Start ()
+    public Sprite defaultSprite;
+    // Use this for initialization
+    void Start()
     {
-        GetComponent<SpriteRenderer>().color = CharacterDataKeeper.Instance.hairColor;
+        if (CharacterDataKeeper.HasHairColor())
+            GetComponent<SpriteRenderer>().color = CharacterDataKeeper.Instance.hairColor;
+        else
+            GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
 
 }
