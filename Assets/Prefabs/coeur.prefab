@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212132343925586840}
   - component: {fileID: 50104262396568808}
   - component: {fileID: 114368265883864678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coeur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536650488321534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.441143, y: 9.493107, z: -34.57734}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

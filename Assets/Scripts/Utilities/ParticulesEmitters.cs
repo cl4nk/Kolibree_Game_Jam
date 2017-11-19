@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class ParticulesEmitters : MonoBehaviour {
 
-    public enum ParticuleType
-    {
-        FRUSTRATE,
-        NORMAL,
-        GOOD,
-        VERYGOOD,
-        PERFECT
-    }
-
     public List<GameObject> frustrate;
     public List<GameObject> normal;
     public List<GameObject> good;
@@ -30,34 +21,33 @@ public class ParticulesEmitters : MonoBehaviour {
 	void Update () {
 		if (spawnParticule)
         {
+            EmitParticule(Accuracy.Perfect);
             spawnParticule = false;
-            EmitParticule(ParticuleType.PERFECT);
         }
 	}
 
-    void EmitParticule(ParticuleType pType)
+    public void EmitParticule(Accuracy pType)
     {
         GameObject lEmitSprite;
         GameObject lRandomSprite;
         Vector2 velocity = new Vector2(0, 0);
-        float scale;
         List<GameObject> lList = null;
 
         switch (pType)
         {
-            case ParticuleType.FRUSTRATE:
+            case Accuracy.Bad:
                 lList = frustrate;
                 break;
-            case ParticuleType.NORMAL:
+            case Accuracy.Completed:
                 lList = normal;
                 break;
-            case ParticuleType.GOOD:
+            case Accuracy.Good:
                 lList = good;
                 break;
-            case ParticuleType.VERYGOOD:
+            case Accuracy.None:
                 lList = veryGood;
                 break;
-            case ParticuleType.PERFECT:
+            case Accuracy.Perfect:
                 lList = perfect;
                 break;
             default:
@@ -68,10 +58,8 @@ public class ParticulesEmitters : MonoBehaviour {
 
         for (int i = 0; i < 5; i++)
         {
-            lEmitSprite = Instantiate(lRandomSprite);
-            scale = Random.Range(0.4f, 1);
-            lEmitSprite.transform.localScale = new Vector2(scale, scale);
-            velocity.Set(Random.Range(-50, 50), Random.Range(-50, 50));
+            lEmitSprite = Instantiate(lRandomSprite, transform);
+            velocity.Set(Random.Range(-10, 10), Random.Range(-10, 10));
             lEmitSprite.GetComponent<Rigidbody2D>().AddForce(velocity, ForceMode2D.Impulse);
         }
     }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212623828601998538}
   - component: {fileID: 114973000722274316}
   - component: {fileID: 50030913895378492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: parfait2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

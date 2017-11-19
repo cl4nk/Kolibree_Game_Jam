@@ -9,6 +9,8 @@ public class FXManager : Singleton<FXManager>
     public string[] NormalStringList;
     public string[] FrustratedStringList;
 
+    public GameObject systemeParticles;
+
     public event Action<string> OnCharacterSpeak;
 
     private AudioSource audioSource;
@@ -20,6 +22,11 @@ public class FXManager : Singleton<FXManager>
                 audioSource = GetComponent<AudioSource>();
             return audioSource;
         }
+    }
+
+    public void Start()
+    {
+        systemeParticles = GameObject.Find("EmitterParticule");
     }
 
     public void OnEnable()
@@ -36,11 +43,13 @@ public class FXManager : Singleton<FXManager>
     {
 
         if (UnityEngine.Random.value < SpeakChance)
-            Speak();
+            Speak(rythm, accuracy);
     }
 
-    private void Speak()
+    private void Speak(BrushRythm rythm, Accuracy accuracy)
     {
+        GameObject lParticle = Instantiate(systemeParticles, rythm.transform);
+        lParticle.GetComponent<ParticulesEmitters>().EmitParticule(accuracy);
     }
 
     private void SpeakRandomFromList(string[] list)
