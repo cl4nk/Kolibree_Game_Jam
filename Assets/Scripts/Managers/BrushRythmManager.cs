@@ -42,6 +42,7 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
             brushRythmDictionnary.Add(rythm.Zone, rythm);
             SpriteRenderer go = Instantiate(TargetPrefab, rythm.transform);
             go.transform.localPosition = Vector3.zero;
+            go.transform.localScale = new Vector2(0.1f, 0.1f);
             targetDictionnary.Add(rythm.Zone, go);
         }
     }
