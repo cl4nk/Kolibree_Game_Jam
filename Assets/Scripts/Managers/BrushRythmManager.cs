@@ -35,7 +35,7 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
         {
             if (ZonesToBrush.Count <= 0)
                 return 0.0f;
-            return (float) Count / (float) ZonesToBrush.Count;
+            return (float) (ZonesToBrush.Count - Count) / (float) ZonesToBrush.Count;
         }
     }
 
@@ -76,6 +76,8 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
             SpriteRenderer go = Instantiate(TargetPrefab, rythm.transform);
             go.transform.localPosition = Vector3.zero;
             go.transform.localScale = new Vector2(0.1f, 0.1f);
+            rythm.Target = go;
+            rythm.SetTargetVisible(false);
         }
     }
 
