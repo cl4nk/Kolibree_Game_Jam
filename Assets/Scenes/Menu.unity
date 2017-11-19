@@ -5462,7 +5462,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1894833192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.000030517578, y: -1.0499878, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1884144013}
@@ -5699,6 +5699,69 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1001 &2020382472
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219702568215270, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2f4e414e0c06e924e9b8a35951082774, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &2020382473 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1837431035918176, guid: 2f4e414e0c06e924e9b8a35951082774,
+    type: 2}
+  m_PrefabInternal: {fileID: 2020382472}
+--- !u!114 &2020382474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020382473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50145e003300eb34ab4cf1346c13bd43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emotionClips:
+  - {fileID: 8300000, guid: 8f41568345fdeb34991ab815faabfbc9, type: 3}
+  - {fileID: 8300000, guid: 501046522e8125b44856abd4211fcf46, type: 3}
+  - {fileID: 8300000, guid: 9ed53c777baaf0e4cb18ff0e95dffe1d, type: 3}
+  - {fileID: 8300000, guid: df5cb077c5b2e2f43bd97bf87de5bf33, type: 3}
 --- !u!1 &2123171728
 GameObject:
   m_ObjectHideFlags: 0

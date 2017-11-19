@@ -25,23 +25,20 @@ public class BrushRythm : MonoBehaviour
         get { return zone; }
     }
 
-    [SerializeField]
-    private float delayBetween = 0.5f;
-    [SerializeField]
-    private float delayAcceptation = 0.1f;
-    [SerializeField]
-    private int goodBrushCount = 5;
-
     public Sprite hintSprite;
 
-    private int currentBrushCount = 0;
-
-    private float lastBrushTime = -1;
-
-    public float PercentCompleted
+    private SpriteRenderer target = null;
+    public SpriteRenderer Target
     {
-        get { return currentBrushCount / goodBrushCount; }
+        get { return target; }
+        set
+        {
+            if (target != null)
+                return;
+            target = value;
+        }
     }
+
 
     public void OnEnable()
     {
@@ -53,37 +50,13 @@ public class BrushRythm : MonoBehaviour
         BrushRythmManager.Instance.Unregister(this);
     }
 
-    public Accuracy OnBrushDetected()
+    void SetTargetVisible (bool value)
     {
-        if (lastBrushTime < 0)
-        {
-            lastBrushTime = Time.time;
-            return Accuracy.None;
-        }
-        else
-        {
-            float TimePassed = Time.time - lastBrushTime;
-            float Diff = Mathf.Abs(TimePassed - delayBetween);
-
-            lastBrushTime = Time.time;
-
-            if (Diff > delayAcceptation)
-                return Accuracy.Bad;
-
-            if (++currentBrushCount >= goodBrushCount)
-                return Accuracy.Completed;
-
-            if (Diff > delayAcceptation / 2)
-                return Accuracy.Good;
-            else
-                return Accuracy.Perfect;
-        }
+        if (Target == null)
+            return;
+        Color newColor = Target.color;
+        newColor.a = value ? 1.0f : 0.5f;
+        Target.color = newColor;
     }
-
-    public void StopBrush()
-    {
-        lastBrushTime = -1;
-    }
-
     
 }
