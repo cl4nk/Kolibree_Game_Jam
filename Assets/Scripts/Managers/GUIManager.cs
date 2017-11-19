@@ -62,6 +62,8 @@ public class GUIManager : Singleton<GUIManager>
 
         toothMeshList[index].gameObject.SetActive(true);
         activeMesh = toothMeshList[index];
+
+        MobileDebugView.LogInfo(index);
     }
 
     private void Instance_OnBrushCompleted(BrushRythm rythm, Accuracy accuracy)
