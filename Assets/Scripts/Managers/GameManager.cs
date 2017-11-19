@@ -61,23 +61,24 @@ public class GameManager : Singleton<GameManager>
             OnGameStateChange.Invoke(state);
         }
     }
-
-    public override void Awake()
+    void OnEnable()
     {
-        base.Awake();
-        character = Instantiate(CharacterDataKeeper.Instance.characterPrefab);
         BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
+        OnGameStateChange += this.GameManager_OnGameStateChange;
+    }
+
+    void OnDisable()
+    {
+        BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
+        OnGameStateChange -= this.GameManager_OnGameStateChange;
     }
 
     public void Start()
     {
+        if (character == null)
+            character = Instantiate(CharacterDataKeeper.Instance.characterPrefab);
         State = GameState.Before;
         Invoke("StartGame", 3.0f);
-    }
-
-    public void OnDestroy()
-    {
-        BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
     }
 
     private void StartGame()
@@ -105,16 +106,6 @@ public class GameManager : Singleton<GameManager>
             case Accuracy.Completed:
                 break;
         }
-    }
-
-    public void OnEnable()
-    {
-        OnGameStateChange += this.GameManager_OnGameStateChange;
-    }
-
-    public void OnDisable()
-    {
-        OnGameStateChange -= this.GameManager_OnGameStateChange;
     }
 
     private void GameManager_OnGameStateChange(GameState state)

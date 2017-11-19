@@ -22,15 +22,20 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void Awake()
+    public void OnEnable()
     {
-        Back = false;
         BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;
     }
 
-    public void OnDestroy()
+    public void OnDisable()
     {
         BrushRythmManager.Instance.OnBrushCompleted -= this.Instance_OnBrushCompleted;
+
+    }
+
+    public void Awake()
+    {
+        Back = false;
     }
 
     private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)

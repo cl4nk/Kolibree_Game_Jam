@@ -5,6 +5,9 @@ using UnityEngine;
 public class BrushRythmManager : Singleton<BrushRythmManager>
 {
     private Dictionary<AraToothbrushZone, BrushRythm> brushRythmDictionnary = new Dictionary<AraToothbrushZone, BrushRythm>();
+    private Dictionary<AraToothbrushZone, SpriteRenderer> targetDictionnary = new Dictionary<AraToothbrushZone, SpriteRenderer>();
+
+    public SpriteRenderer TargetPrefab;
 
     public event Action<BrushRythm, AraToothbrushZone, Accuracy> OnBrushCompleted;
 
@@ -34,14 +37,24 @@ public class BrushRythmManager : Singleton<BrushRythmManager>
 
     public void Register (BrushRythm rythm)
     {
-        brushRythmDictionnary.Add(rythm.Zone, rythm);
+        if (!brushRythmDictionnary.ContainsKey(rythm.Zone))
+        {
+            brushRythmDictionnary.Add(rythm.Zone, rythm);
+            SpriteRenderer go = Instantiate(TargetPrefab, rythm.transform);
+            go.transform.localPosition = Vector3.zero;
+            targetDictionnary.Add(rythm.Zone, go);
+        }
     }
 
     public void Unregister(BrushRythm rythm)
     {
         AraToothbrushZone zone = rythm.Zone;
         if (brushRythmDictionnary.ContainsKey(zone) && brushRythmDictionnary[zone] == rythm)
+        {
             brushRythmDictionnary.Remove(zone);
+            Destroy(targetDictionnary[zone].gameObject);
+            targetDictionnary.Remove(zone);
+        }
         else
             Debug.LogWarning("Rythm not found inside dictionnary");
     }
