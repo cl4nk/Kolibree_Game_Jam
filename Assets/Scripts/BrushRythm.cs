@@ -67,12 +67,13 @@ public class BrushRythm : MonoBehaviour
 
             lastBrushTime = Time.time;
 
+            if (Diff > delayAcceptation)
+                return Accuracy.Bad;
+
             if (++currentBrushCount >= goodBrushCount)
                 return Accuracy.Completed;
 
-            if (Diff > delayAcceptation)
-                return Accuracy.Bad;
-            else if (Diff > delayAcceptation / 2)
+            if (Diff > delayAcceptation / 2)
                 return Accuracy.Good;
             else
                 return Accuracy.Perfect;

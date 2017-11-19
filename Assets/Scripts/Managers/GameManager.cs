@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     public event Action<GameState> OnGameStateChange;
+    public event Action<CharacterEmotion> OnEmotionChanged;
     public event Action<int> OnScoreChange;
 
     [SerializeField]
@@ -23,6 +24,7 @@ public class GameManager : Singleton<GameManager>
     public Character character;
 
     private GameState state = GameState.None;
+    private CharacterEmotion emotion = CharacterEmotion.Normal;
 
     public int Score
     {
@@ -61,6 +63,23 @@ public class GameManager : Singleton<GameManager>
             OnGameStateChange.Invoke(state);
         }
     }
+
+    public CharacterEmotion Emotion
+    {
+        get
+        {
+            return emotion;
+        }
+        set
+        {
+            if (emotion != value)
+                return;
+
+            emotion = value;
+            OnEmotionChanged.Invoke(emotion);
+        }
+    }
+
     void OnEnable()
     {
         BrushRythmManager.Instance.OnBrushCompleted += this.Instance_OnBrushCompleted;

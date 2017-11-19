@@ -1,6 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+public enum CharacterEmotion
+{
+    Normal,
+    Happy,
+    Orgasm,
+    Frustrated
+}
+
 [RequireComponent(typeof(FXManager))]
 public class Character : MonoBehaviour
 {
@@ -9,7 +17,7 @@ public class Character : MonoBehaviour
 
     public Sprite MainHintSprite;
 
-    private bool _back = true;
+    private bool _back = false;
     public bool Back
     {
         get { return _back; }
@@ -35,7 +43,7 @@ public class Character : MonoBehaviour
 
     public void Awake()
     {
-        Back = false;
+        Back = true;
     }
 
     private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
@@ -46,9 +54,7 @@ public class Character : MonoBehaviour
 
     public void UpdateState ()
     {
-        if (frontGameObject)
-            frontGameObject.gameObject.SetActive(!Back);
-        if (backGameObject)
-            backGameObject.gameObject.SetActive(Back);
+        frontGameObject.gameObject.SetActive(!Back);
+        backGameObject.gameObject.SetActive(Back);
     }
 }
