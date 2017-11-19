@@ -59,11 +59,14 @@ public class GUIManager : Singleton<GUIManager>
 
         toothMeshList[index].gameObject.SetActive(true);
         activeMesh = toothMeshList[index];
+
+        MobileDebugView.LogInfo(index);
     }
 
     private void Instance_OnBrushCompleted(BrushRythm rythm, AraToothbrushZone zone, Accuracy accuracy)
     {
         orgasmSlider.value = GameManager.Instance.OrgasmJauge;
+        MobileDebugView.LogInfo("rentre dans la fonction Complete");
 
         int index = (int) zone;
 
@@ -71,6 +74,7 @@ public class GUIManager : Singleton<GUIManager>
             return;
 
         spriteContainer.sprite = rythm.hintSprite;
+        MobileDebugView.LogInfo("Value de orgasmSlider: " + orgasmSlider.value);
 
     }
 
